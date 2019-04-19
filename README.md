@@ -4,7 +4,7 @@ A web app that helps organize tandas and notifies participants when the due day 
 
 **Tools** Node, Express, PostgreSQL, React 
 
-**Project Map** [Tanda-GoogleDrive](https://drive.google.com/drive/folders/1BbNPpbzIbkVwnVko8n5izu3ZgObEWT_c?usp=sharing)
+**Project Map** [Tanda-GoogleDrive](https://docs.google.com/document/d/1ZaUGfrWHbPzdIV9YhOpg1CuwE0FXe0FYn3GDqOAjkvM/edit?usp=sharing)
 
 ***
 

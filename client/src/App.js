@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Title from './Title'
 import './App.css';
 
 class App extends Component {
@@ -45,13 +46,14 @@ class App extends Component {
     } else {
       console.log(items);
       return (
-        <ul>
+        /*<ul>
           {items.map(item => (
             <li key={item.firstname}>
               {item.firstname}
             </li>
           ))}
-        </ul>
+        </ul>*/
+        <Title name='Tanda' />
       );
     }
   }

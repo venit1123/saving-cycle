@@ -1,27 +1,59 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: [],
+    };
+  };
+
+  componentDidMount() {
+
+    fetch('/home')
+      .then((res) => {
+        return res.json();
+      })
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result
+          })
+        }).catch(
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error: "Error: Unable to connect to DB"
+            })
+            console.log(error)
+          }
+        );
+  }
+
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      console.log(items);
+      return (
+        <ul>
+          {items.map(item => (
+            <li key={item.firstname}>
+              {item.firstname}
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 }
 

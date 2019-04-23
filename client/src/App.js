@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import Title from './Title'
+import Title from './Title';
+import MoneyAmountForm from './MoneyAmountForm';
+import TimeGapForm from './TimeGapForm';
+import StartDateForm from './StartDateForm';
 import './App.css';
 
 class App extends Component {
@@ -53,7 +56,12 @@ class App extends Component {
             </li>
           ))}
         </ul>*/
-        <Title name='Tanda' />
+        <div>
+          <Title name='Tanda' />
+          <MoneyAmountForm />
+          <TimeGapForm />
+          <StartDateForm />
+        </div>
       );
     }
   }

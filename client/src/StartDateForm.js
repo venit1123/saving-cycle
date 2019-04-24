@@ -2,31 +2,32 @@ import React, { Component } from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
-class StartDateForm extends Component {
-
+class StartDayForm extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
-            startDay: new Date().toLocaleDateString()
+            startDay: new Date()
         };
-        this.handleDayChange = this.handleDayChange.bind(this);
     }
 
     handleDayChange(day) {
-        day = day.toLocaleDateString();
-        this.setState({
-            startDay: day 
-        });
+        this.setState({startDay: day}, this.handleSubmit.bind(this));
     }
 
+    handleSubmit = () => { this.props.getStartDay(this.state.startDay) }
+    
     render() {
-        console.log(this.state.startDay);
+//        console.log(this.state.startDay);
         return (
-            <DayPickerInput onDayChange={this.handleDayChange} />
+            <div >
+                <DayPickerInput onDayChange={this.handleDayChange.bind(this)} />
+            </div>
+ 
         );
     }
 }
 
 
-export default StartDateForm;
+export default StartDayForm;

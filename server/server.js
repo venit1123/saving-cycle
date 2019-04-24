@@ -21,17 +21,45 @@ const pool = new Pool({
 // });
 
 
-app.get('/home', async (req, res) => {
+app.get('/tanda', async (req, res) => {
     let client;
     
     try {
         client = await pool.connect();
-        let result = await client.query('SELECT * FROM participant');
+        let result = await client.query('SELECT * FROM tanda');
         console.log(result.rows);
         res.status(200).json(result.rows);
     } catch (error) {
         console.error(error);
         res.status(500).send("Server error");
+    }
+    finally { client && client.release(); }
+
+});
+
+
+app.post('/tanda', async (req, res) => {
+    let client;
+    
+    try {
+        client = await pool.connect();
+
+        let result = await client.query('INSERT INTO tanda VALUES(default,$1,$2,$3,$4,$5,$6,$7) RETURNING *',[
+            req.body.moneyAmount, 
+            req.body.timeGap, 
+            req.body.startDay, 
+            req.body.endDay, 
+            req.body.slots, 
+            req.body.available_slots,
+            req.body.tanda_type_id
+        ]);
+
+        console.log(result.rows[0]);
+        res.status(201).json(result.rows[0]);
+
+    } catch (error) {
+        console.error(err);
+        res.status(500).send("Server error: " + error);
     }
     finally { client && client.release(); }
 

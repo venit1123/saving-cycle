@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import Title from './Title';
 import TandaForm from './TandaForm'
-// import MoneyAmountForm from './MoneyAmountForm';
-// import TimeGapForm from './TimeGapForm';
-// import StartDayForm from './StartDateForm';
-// import SlotsForm from './SlotsForm'
 import './App.css';
 
 class App extends Component {

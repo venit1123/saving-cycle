@@ -1,10 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Welcome from './Welcome';
+import Home from './Home';
+import App from './App'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Router>
+    <div>
+        <Route exact path="/" component={Welcome} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/newTanda" component={App} />
+    </div>
+</Router>, 
+document.getElementById('root'));
+// ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

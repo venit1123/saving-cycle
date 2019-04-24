@@ -11,7 +11,12 @@ require('dotenv').config();
 
 app.use(express.json())
 
-new Pool({
+// const pool = new Pool({
+//     connectionString: process.env.DATABASE_URL || `postgres://localhost:5432/tanda`,
+//     ssl: process.env.NODE_ENV === 'production'
+// });
+
+const pool = new Pool({
 
     connectionString: process.env.DATABASE_URL || `postgres://localhost:5432/tanda`,
     ssl: process.env.NODE_ENV === 'production'

@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Welcome from './Welcome';
 import Home from './Home';
-import App from './App'
+import App from './App';
+import Table from './Table'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
@@ -12,6 +13,7 @@ ReactDOM.render(<Router>
         <Route exact path="/" component={Welcome} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/newTanda" component={App} />
+        <Route exact path="/table" component={Table} />
     </div>
 </Router>, 
 document.getElementById('root'));

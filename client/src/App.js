@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Title from './Title';
 import TandaForm from './TandaForm'
 import './App.css';
+import { withRouter } from "react-router-dom"
 
 class App extends Component {
 
@@ -11,7 +12,8 @@ class App extends Component {
       error: null,
       isLoaded: false,
       items: [],
-      tandas: []
+      tandas: [],
+      receivingDays: null
     };
   };
 
@@ -42,21 +44,28 @@ class App extends Component {
     // Time Gap: ${ timeGap } \n
     // Start Day: ${ startDay } \n
     // Slots: ${ slots }`);
+    //console.log("HI FROM HANDLE TANDA");
+    // this.props.history.push({
+    //   pathname: '/table',
+    //   state: { detail: "ANDY" }
+    // })
+
+    //return
+
 
     let endDay = new Date();
     endDay.setDate(startDay.getDate() + timeGap * (slots - 1) );
 
-    startDay = startDay.toLocaleDateString();
-    endDay = endDay.toLocaleDateString();
+    let startDayFormated = startDay.toLocaleDateString();
+    let endDayFormated = endDay.toLocaleDateString();
 
-    // console.log(`Start date : ${startDay}`);
-    // console.log(`End date : ${endDay}`);
+    console.log(`Start date: ${startDay} and End date: ${endDay}`);
 
     const body = {
       moneyAmount,
       timeGap,
-      startDay,
-      endDay,
+      startDay: startDayFormated,
+      endDay: endDayFormated,
       slots,
       available_slots: 1,
       tanda_type_id: 2
@@ -81,13 +90,39 @@ class App extends Component {
         ]
       })
       console.log("This is the JSON from app: " , this.state.tandas);
-    }).catch((error) => {
+    }).then(
+      this.createTandaSpreadSheet(startDay, timeGap, slots)
+    ).catch((error) => {
       alert(error, "Unable to add apprentice");
     });
 
   }
 
+  createTandaSpreadSheet = (startDay, timeGap, slots) => {
+    console.log("HELLO FROM CREATE TANDA SPREADSHEET!")
+    let newDate = startDay;
+    let days = [] 
+
+    days.push(new Date(newDate).toLocaleDateString());
+
+    while(slots > 1){
+      newDate.setDate(newDate.getDate() + timeGap)
+      days.push(new Date(newDate).toLocaleDateString());
+      slots --;
+    }
+
+    this.props.history.push({
+      pathname: '/table',
+      state: { days: days }
+    })
+    // this.setState({
+    //   receivingDays: days
+    // })
+
+  }
   render() {
+    console.log("DAYS ARRAY: " , this.state.receivingDays)
+
     const { error, isLoaded, tandas } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -105,11 +140,14 @@ class App extends Component {
           ))}
         </ul> */}
           <Title name='Tanda' />
-          <TandaForm createTanda={this.handleCreateNewTanda} />
+          <TandaForm 
+            createTanda={this.handleCreateNewTanda}
+            receivingDays={this.setState.receivingDays}
+           />
         </div>
       );
     }
   }
 }
 
-export default App;
+export default withRouter(App);

@@ -4,6 +4,7 @@ import TimeGapForm from './TimeGapForm';
 import StartDayForm from './StartDateForm';
 import SlotsForm from './SlotsForm'
 import './App.css';
+import { withRouter } from "react-router-dom"
 
 class TandaForm extends Component {
 
@@ -52,6 +53,12 @@ class TandaForm extends Component {
         );
     }
 
+    nextPath(path) {
+        console.log("*****" + this.props);
+        console.log("----" + this.props.history);
+        this.props.history.push(path);
+    }
+
     render(){
         return(
             <div>
@@ -63,10 +70,19 @@ class TandaForm extends Component {
                 <br></br>
                 <SlotsForm getSlots={this.handleSlots} />
                 <br></br>
-                <input type="submit" value="Submit" onClick={this.handleSubmit.bind(this)} />
+                <input type="submit" value="Submit" onClick={() => {
+                    this.handleSubmit();
+                    // this.props.history.push({
+                    //     pathname: '/table',
+                    //     state: { detail: "Itzel" }
+                    // })
+                }
+                }
+                    
+                 />
             </div>
         );
     }
 }
 
-export default TandaForm;
+export default withRouter(TandaForm);

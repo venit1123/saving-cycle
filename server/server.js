@@ -71,6 +71,31 @@ app.post('/tanda', async (req, res) => {
 
 });
 
+app.post('/tanda/receiving_days', async (req, res) => {
+
+    let results = [];
+    let client = await pool.connect();
+    try{
+    for (let index = 0; index < req.body.days.length; index++){
+
+            let result = await client.query('INSERT INTO receivingday VALUES(default,$1,$2,$3) RETURNING *', [
+                req.body.days[index],
+                req.body.tandaId,
+                req.body.user_id
+            ]);
+            console.log(result.rows[0])
+            results.push(result.rows[0])
+
+    }
+        console.log(results);
+        res.status(201).json(results);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Server error: " + error);
+    }
+});
+
+
 
 
 

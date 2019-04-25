@@ -14,6 +14,7 @@ ReactDOM.render(<Router>
         <Route exact path="/home" component={Home} />
         <Route exact path="/newTanda" component={App} />
         <Route exact path="/table" component={Table} />
+
     </div>
 </Router>, 
 document.getElementById('root'));

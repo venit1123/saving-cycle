@@ -54,8 +54,6 @@ class TandaForm extends Component {
     }
 
     nextPath(path) {
-        console.log("*****" + this.props);
-        console.log("----" + this.props.history);
         this.props.history.push(path);
     }
 

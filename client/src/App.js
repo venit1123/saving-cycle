@@ -13,7 +13,9 @@ class App extends Component {
       isLoaded: false,
       items: [],
       tandas: [],
-      receivingDays: null
+      receivingDays: null,
+      tandaId: null,
+      newTandaInfo: null
     };
   };
 
@@ -39,19 +41,6 @@ class App extends Component {
    }
  
   handleCreateNewTanda = (moneyAmount, timeGap, startDay, slots) => {
-    // console.log(`HELLO FROM APP THIS IS WHAT I GOT: 
-    // Money Amount: ${ moneyAmount } \n
-    // Time Gap: ${ timeGap } \n
-    // Start Day: ${ startDay } \n
-    // Slots: ${ slots }`);
-    //console.log("HI FROM HANDLE TANDA");
-    // this.props.history.push({
-    //   pathname: '/table',
-    //   state: { detail: "ANDY" }
-    // })
-
-    //return
-
 
     let endDay = new Date();
     endDay.setDate(startDay.getDate() + timeGap * (slots - 1) );
@@ -59,7 +48,7 @@ class App extends Component {
     let startDayFormated = startDay.toLocaleDateString();
     let endDayFormated = endDay.toLocaleDateString();
 
-    console.log(`Start date: ${startDay} and End date: ${endDay}`);
+//    console.log(`Start date: ${startDay} and End date: ${endDay}`);
 
     const body = {
       moneyAmount,
@@ -70,8 +59,7 @@ class App extends Component {
       available_slots: 1,
       tanda_type_id: 2
     }
-
-    console.log("DATA BEFORE FETCHING" ,body);
+    //console.log("DATA BEFORE FETCHING" ,body);
 
     fetch(`/tanda`, {
       method: 'post',
@@ -85,21 +73,18 @@ class App extends Component {
       }
     }).then((json) => {
       this.setState({
-        tandas: [
-          ...this.state.tandas, json
-        ]
+        tandas: json,
       })
-      console.log("This is the JSON from app: " , this.state.tandas);
-    }).then(
-      this.createTandaSpreadSheet(startDay, timeGap, slots)
-    ).catch((error) => {
+    }).then( () => {
+      this.createTandaSpreadSheet(this.state.tandas.id, startDay, timeGap, slots) 
+    }).catch((error) => {
       alert(error, "Unable to add apprentice");
     });
 
   }
 
-  createTandaSpreadSheet = (startDay, timeGap, slots) => {
-    console.log("HELLO FROM CREATE TANDA SPREADSHEET!")
+  createTandaSpreadSheet = (tandaId, startDay, timeGap, slots) => {
+
     let newDate = startDay;
     let days = [] 
 
@@ -111,17 +96,40 @@ class App extends Component {
       slots --;
     }
 
-    this.props.history.push({
-      pathname: '/table',
-      state: { days: days }
+    const body = {
+      days,
+      tandaId,
+      user_id: null
+    }
+
+    fetch(`/tanda/receiving_days`, {
+      method: 'post',
+      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json' }
+    }).then((res) => {
+      if (res.status === 400) {
+        alert("Unable to add dates to database:");
+      } else {
+        return res.json();
+      }
+    }).then((result) => {
+      console.log(result)
+      this.setState({
+        newTandaInfo: result,
+      })
     })
-    // this.setState({
-    //   receivingDays: days
-    // })
+    .catch((error) => {
+      alert(error, "Unable to add apprentice");
+    });
+
+    // this.props.history.push({
+    //                     pathname: '/table',
+    //                     state: { detail: "Itzel" }
+    //                 })
 
   }
   render() {
-    console.log("DAYS ARRAY: " , this.state.receivingDays)
+    //console.log("DAYS ARRAY: " , this.state.receivingDays)
 
     const { error, isLoaded, tandas } = this.state;
     if (error) {

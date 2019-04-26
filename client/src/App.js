@@ -48,8 +48,6 @@ class App extends Component {
     let startDayFormated = startDay.toLocaleDateString();
     let endDayFormated = endDay.toLocaleDateString();
 
-//    console.log(`Start date: ${startDay} and End date: ${endDay}`);
-
     const body = {
       moneyAmount,
       timeGap,
@@ -59,7 +57,6 @@ class App extends Component {
       available_slots: 1,
       tanda_type_id: 2
     }
-    //console.log("DATA BEFORE FETCHING" ,body);
 
     fetch(`/tanda`, {
       method: 'post',
@@ -113,40 +110,30 @@ class App extends Component {
         return res.json();
       }
     }).then((result) => {
-      console.log(result)
       this.setState({
         newTandaInfo: result,
+        tandaId: result[0].tanda_id 
+      })
+    }).then(() => {
+      this.props.history.push({
+        pathname: '/table', 
+        state: { tandaId: this.state.tandaId }
       })
     })
     .catch((error) => {
       alert(error, "Unable to add apprentice");
     });
 
-    // this.props.history.push({
-    //                     pathname: '/table',
-    //                     state: { detail: "Itzel" }
-    //                 })
-
   }
   render() {
-    //console.log("DAYS ARRAY: " , this.state.receivingDays)
-
     const { error, isLoaded, tandas } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      //console.log(tandas);
       return (
         <div>
-        {/* <ul>
-          {tandas.map(tanda => (
-            <li key={tanda.id}>
-              {tanda.id}
-            </li>
-          ))}
-        </ul> */}
           <Title name='Tanda' />
           <TandaForm 
             createTanda={this.handleCreateNewTanda}

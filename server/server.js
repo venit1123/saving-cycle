@@ -95,6 +95,23 @@ app.post('/tanda/receiving_days', async (req, res) => {
     }
 });
 
+app.get('/tanda/:id', async (req, res) => {
+
+    //console.log("Inside TANDA ID and got id:", req.params.id)
+    let client;
+    try {
+        client = await pool.connect();
+        let result = await client.query('Select * from receivingday WHERE tanda_id=$1', [req.params.id]);
+        console.log(result.rows);
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Server error");
+    }
+    finally { client && client.release(); }
+
+});
+
 
 
 

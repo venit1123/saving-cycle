@@ -1,52 +1,64 @@
 
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom"
+import SingleDay from './SingleDay';
 
 class Table extends Component {
     constructor() {
         super();
         this.state = {
+            error: null,
+            isLoaded: false,
             days: null
         };
     };
 
 
 
-    componentDidMount(){
-        console.log(this.props.location.state.days );
-        // setTimeout(() => {
-        //     this.setState({
-        //         days: this.props.location.state.days
-        //     })
-        // },200)
+    componentDidMount() {
 
-        // this.setState({
-        //     days: this.props.location.state.days 
-        // })
+        let id = this.props.location.state.tandaId;
+
+        fetch(`/tanda/${id}`)
+        .then((res) => {
+            return res.json();
+        })
+        .then((result) => {
+            console.log(result)
+            this.setState({
+                isLoaded: true,
+                days: result
+             })
+        }).catch((error) => {
+            this.setState({
+                isLoaded: true,
+                error: "Error: Unable to connect to DB"
+            })
+            console.log(error)
+        });
     }
 
     render(){
-        // const { error, isLoaded, days } = this.state;
-        // if (error) {
-        //     return <div>Error: {error.message}</div>;
-        // } else if (!isLoaded) {
-        //     return <div>Loading...</div>;
-        // } else {
-        //     return (
-        //     <div>
-        //         <ul>
-        //         {days.map(day => (
-        //             <li>{"HELLO"}</li>
-        //             )
-        //           )
-        //         }        
-        //        </ul>
-        //     </div>
+        const { error, isLoaded, days } = this.state;
+        if (error) {
+            return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+            return <div>Loading...</div>;
+        } else {
         return(
-            <h1>Table</h1>
+            <div>
+                {days.map(date => (
+                     <SingleDay 
+                     key={date.id}
+                     date={date.day}
+                     participant={date.user_id} />
+                     )
+                   )
+                 }        
+             </div>
         );
     }
 }
-
+}
 
 export default withRouter(Table);

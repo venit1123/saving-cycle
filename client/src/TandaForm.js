@@ -70,10 +70,7 @@ class TandaForm extends Component {
                 <br></br>
                 <input type="submit" value="Submit" onClick={() => {
                     this.handleSubmit();
-                    // this.props.history.push({
-                    //     pathname: '/table',
-                    //     state: { detail: "Itzel" }
-                    // })
+                  
                 }
                 }
                     

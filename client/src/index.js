@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Welcome from './Welcome';
+import NewTanda from './NewTanda'
 import Home from './Home';
 import App from './App';
 import Table from './Table'
@@ -10,9 +10,9 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Router>
     <div>
-        <Route exact path="/" component={Welcome} />
+        <Route exact path="/" component={App} />
         <Route exact path="/home" component={Home} />
-        <Route exact path="/newTanda" component={App} />
+        <Route exact path="/newTanda" component={NewTanda} />
         <Route exact path="/table" component={Table} />
 
     </div>

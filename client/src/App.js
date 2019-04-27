@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { withRouter } from "react-router-dom"
 
+
 class App extends Component {
   nextPath(path) {
     this.props.history.push(path);

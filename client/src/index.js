@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import NewTanda from './NewTanda'
 import Home from './Home';
-import App from './App';
 import Table from './Table'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import Welcome from './Welcome';
 
 ReactDOM.render(<Router>
     <div>
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={Welcome} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/newTanda" component={NewTanda} />
         <Route exact path="/table" component={Table} />

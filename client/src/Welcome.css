@@ -1,0 +1,68 @@
+.body{
+    background: #F9F4EE;
+}
+
+.no-side-padding{
+     padding-left: 0;
+     padding-right: 0;
+}
+
+.min-padding{
+    padding: 10%;
+}
+
+.min-padding{
+     padding-left: 2%;
+     padding-right: 2%;
+}
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.center{
+ vertical-align: middle;
+}
+
+.title{
+   text-transform: uppercase;
+   font-family: 'Homenaje',
+   sans-serif;
+   font-family: 'Federo',
+   sans-serif;
+   font-family: 'Julius Sans One',
+   sans-serif;
+}
+
+.medium-font {
+    font-size: medium;
+}
+
+.sub-title-font{
+    text-transform: lowercase;
+    font-family: 'Julius Sans One',
+    sans-serif;
+    font-family: 'Homenaje',
+    sans-serif;
+}
+
+.main-font{
+    font-family: 'Homenaje',
+    sans-serif;
+    font-family: 'Federo',
+    sans-serif;
+    font-family: 'Julius Sans One',
+    sans-serif;
+    font-family: 'Playfair Display',
+    serif;
+}
+
+.justify-text{
+    text-align: justify;
+    text-justify: inter-word;
+}  
+
+.outline-button{
+    border: 2px solid black;
+}

@@ -39,23 +39,12 @@
     font-size: medium;
 }
 
-.sub-title-font{
-    text-transform: lowercase;
-    font-family: 'Julius Sans One',
-    sans-serif;
-    font-family: 'Homenaje',
-    sans-serif;
-}
-
 .main-font{
-    font-family: 'Homenaje',
-    sans-serif;
-    font-family: 'Federo',
-    sans-serif;
+    
     font-family: 'Julius Sans One',
     sans-serif;
-    font-family: 'Playfair Display',
-    serif;
+    font-family: 'Homenaje',
+    sans-serif;
 }
 
 .justify-text{

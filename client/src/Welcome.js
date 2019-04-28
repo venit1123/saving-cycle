@@ -19,14 +19,12 @@ class Welcome extends Component {
                                 <h1 className = 'h2 title'>
                                     Tanda
                                     <br/>
-                                    <small className = 'text-muted sub-title-font medium-font'>A way to save money and build community</small>
+                                    <small className = 'text-muted main-font medium-font'>A way to save money and build community</small>
                                 </h1>
                                 <p className = 'main-font justify-text'>
                                     Tandas is a tool that has been passed down
                                     for generations and has been used as a structured way to access cash or save
                                         for a goal. By working in a group, we are forced into a commitment where others are counting on us, which gives us just the right amount of motivation to stick to the plan. The idea of <i> "I want to save"</i> becomes <i> “I have to save” </i> and before you know it you’ve reached your savings goal and are off enjoying that trip you’ve been wanting to take.
-
-                        
                                     </p>
                                     <button type = 'button' className = 'btn rounded-pill outline-button' onClick = {() => this.props.history.push('/home')}>
                                     Login 

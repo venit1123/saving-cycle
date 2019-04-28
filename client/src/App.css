@@ -31,3 +31,11 @@
     transform: rotate(360deg);
   }
 }
+
+.main-font {
+
+  font-family: 'Julius Sans One',
+    sans-serif;
+  font-family: 'Homenaje',
+    sans-serif;
+}

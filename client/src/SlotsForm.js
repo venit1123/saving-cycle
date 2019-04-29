@@ -14,6 +14,7 @@ class SlotsForm extends Component {
     }
 
     handleSubmit = () => {
+        this.handleToggle();
         this.props.getSlots(this.state.slots);
     }
 
@@ -24,10 +25,10 @@ class SlotsForm extends Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.handleToggle}>Select number of slots:</button>
-            <form ref='toggle'>
-            <div className='initiallyHidden' onChange={this.handleSlotsChange.bind(this)}>
+            <div className='card'>
+                <button className='btn blue-button' onClick={this.handleToggle}>Number of slots:</button>
+                <form ref='toggle' className='initiallyHidden'>
+            <div onChange={this.handleSlotsChange.bind(this)}>
                 <li>
                     <input type="radio" value="5" name="amount" /> 5
                 </li>

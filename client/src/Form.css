@@ -26,6 +26,11 @@
     width: inherit;
 }
 
-.title{
-    font-size: xx-small !important;
+.blue-button{
+    color: #F1C448;
+    background-color: #213C4D;
+}
+
+.blue-button:hover{
+    color: #F1C448;
 }

@@ -49,22 +49,22 @@ class TandaForm extends Component {
     render(){
         return(
             <div className='body min-padding'>
-            <div className='title'>
-                <Title name="Create a new Tanda:"/>
+                <div className='title'>
+                    <Title name="Create a new Tanda:"/>
                 </div>
-            <div className='form'>
-                <MoneyAmountForm getAmount = {this.handleMoneyAmount} />
-                <br></br>
-                <TimeGapForm getTimeGap = {this.handleTimeGap} />
-                <br></br>
-                <StartDayForm getStartDay={this.handleStartDay} />
-                <br></br>
-                <SlotsForm getSlots={this.handleSlots} />
-                <br></br>
-                <input type="submit" value="Submit" onClick={() => 
-                    {this.handleSubmit();}
-                }/>
-            </div>
+                <div className='form'>
+                    <MoneyAmountForm getAmount = {this.handleMoneyAmount} />
+                    <br></br>
+                    <TimeGapForm getTimeGap = {this.handleTimeGap} />
+                    <br></br>
+                    <StartDayForm getStartDay={this.handleStartDay} />
+                    <br></br>
+                    <SlotsForm getSlots={this.handleSlots} />
+                    <br></br>
+                    <input type="submit" value="Submit" onClick={() => 
+                        {this.handleSubmit();}
+                    }/>
+                </div>
             </div>
         );
     }

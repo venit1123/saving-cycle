@@ -40,7 +40,7 @@ class MoneyAmountForm extends Component {
                                 <input id="radio-one" className="form-radio" type="radio" value="50" name="amount" /> $50
                             </li>
                             <li className="list-group-item list-group-item-action">
-                                <input id="radio-one" className="form-radio"n type="radio" value="100" name="amount" /> $100
+                                <input id="radio-one" className="form-radio" type="radio" value="100" name="amount" /> $100
                             </li>
                             <li className="list-group-item list-group-item-action">
                                 <input id="radio-one" className="form-radio" type="radio" value="200" name="amount" /> $200

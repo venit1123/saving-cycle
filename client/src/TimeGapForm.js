@@ -31,7 +31,7 @@ class TimeGapForm extends Component {
         
                 <form ref='toggle' className='initiallyHidden'>
                 <div onChange={this.handleTimeGapChange.bind(this)}>
-                <lu className="no-radio list-group-mine main-font">
+                <ul className="no-radio list-group-mine main-font">
                     <li className="list-group-item list-group-item-action">
                         <input id="radio-one" className="form-radio" type="radio" value="7" name="amount" /> Weekly
                     </li>
@@ -41,7 +41,7 @@ class TimeGapForm extends Component {
                     <li className="list-group-item list-group-item-action">
                         <input id="radio-one" className="form-radio" type="radio" value="30" name="amount" /> Monthly
                     </li>
-                    </lu>
+                    </ul>
                 </div>
             </form>
             </div>

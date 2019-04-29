@@ -132,7 +132,7 @@ class NewTanda extends Component {
             return <div>Loading...</div>;
         } else {
             return (
-                <div className=''>
+                <div>
                     <TandaForm
                         createTanda={this.handleCreateNewTanda}
                         receivingDays={this.setState.receivingDays}

@@ -10,7 +10,7 @@ class Card extends Component {
         <div className='container'>
           <div className='row'>
             <div className="card card-margin" >
-              <img src={this.props.image} className="card-img-top" alt="..." />
+              <img src={this.props.image} className="card-img-top" alt="CHANGE THIS" />
               <div className="card-body">
                 <h5 className="title card-title">{this.props.title}</h5>
                 <p className="card-text main-font">{this.props.description}</p>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { withRouter } from "react-router-dom"
-
+import $ from 'jquery'
 
 class App extends Component {
   nextPath(path) {

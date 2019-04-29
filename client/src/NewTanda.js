@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Title from './Title';
 import TandaForm from './TandaForm'
-
 
 class NewTanda extends Component {
 
@@ -134,8 +132,7 @@ class NewTanda extends Component {
             return <div>Loading...</div>;
         } else {
             return (
-                <div>
-                    <Title name='Tanda' />
+                <div className=''>
                     <TandaForm
                         createTanda={this.handleCreateNewTanda}
                         receivingDays={this.setState.receivingDays}

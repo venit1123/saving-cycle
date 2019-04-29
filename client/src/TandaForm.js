@@ -4,7 +4,9 @@ import TimeGapForm from './TimeGapForm';
 import StartDayForm from './StartDateForm';
 import SlotsForm from './SlotsForm'
 import './App.css';
+import './Form.css'
 import { withRouter } from "react-router-dom"
+import Title from './Title';
 
 class TandaForm extends Component {
 
@@ -19,32 +21,23 @@ class TandaForm extends Component {
     };
 
     handleMoneyAmount = (moneyAmount) => {
-        //console.log(`HELLO FROM THE APP, $ SELECTED ${moneyAmount}`)
+        console.log(moneyAmount);
         this.setState({ moneyAmount })
     }
 
     handleTimeGap = (timeGap) => {
-        //console.log(`HELLO FROM THE APP, TIME GAP SELECTED ${timeGap} days`)
         this.setState({ timeGap })
     }
     
     handleStartDay = (startDay) => {
-//        console.log(`HELLO FROM THE APP, DAY SELECTED ${startDay.toLocaleDateString()}`);
         this.setState({ startDay: startDay})
     }
 
     handleSlots = (slots) => {
-        //console.log(`HELLO FROM THE APP, SLOTS SELECTED  ${slots}`);
         this.setState({ slots })
     }
 
     handleSubmit = () => {
-        // console.log(`Submit pressed: \n 
-        // Money Amount: ${this.state.moneyAmount} \n
-        // Time Gap: ${this.state.timeGap} \n 
-        // Start Day: ${this.state.startDay} \n 
-        // Slots: ${this.state.slots}`);
-
         this.props.createTanda(
             this.state.moneyAmount, 
             this.state.timeGap, 
@@ -52,14 +45,14 @@ class TandaForm extends Component {
             this.state.slots
         );
     }
-
-    nextPath(path) {
-        this.props.history.push(path);
-    }
-
+    
     render(){
         return(
-            <div>
+            <div className='body min-padding'>
+            <div className='title'>
+                <Title name="Create a new Tanda:"/>
+                </div>
+            <div className='form'>
                 <MoneyAmountForm getAmount = {this.handleMoneyAmount} />
                 <br></br>
                 <TimeGapForm getTimeGap = {this.handleTimeGap} />
@@ -68,13 +61,10 @@ class TandaForm extends Component {
                 <br></br>
                 <SlotsForm getSlots={this.handleSlots} />
                 <br></br>
-                <input type="submit" value="Submit" onClick={() => {
-                    this.handleSubmit();
-                  
-                }
-                }
-                    
-                 />
+                <input type="submit" value="Submit" onClick={() => 
+                    {this.handleSubmit();}
+                }/>
+            </div>
             </div>
         );
     }

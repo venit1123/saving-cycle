@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
+import $ from 'jquery';
 
 class StartDayForm extends Component {
 
@@ -13,16 +14,26 @@ class StartDayForm extends Component {
     }
 
     handleDayChange(day) {
+        this.handleToggle();
         this.setState({startDay: day}, this.handleSubmit.bind(this));
     }
 
-    handleSubmit = () => { this.props.getStartDay(this.state.startDay) }
+    handleSubmit = () => { 
+        this.props.getStartDay(this.state.startDay) 
+    }
+
+    handleToggle = () => {
+        const toggleForm = this.refs.toggle;
+        $(toggleForm).slideToggle();
+    } 
     
     render() {
-//        console.log(this.state.startDay);
         return (
-            <div >
+            <div>
+                <button onClick={this.handleToggle}>Starting day</button>
+                <div ref='toggle' className='initiallyHidden' >
                 <DayPickerInput onDayChange={this.handleDayChange.bind(this)} />
+            </div>
             </div>
  
         );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 
 class SlotsForm extends Component {
     constructor(props) {
@@ -16,11 +17,17 @@ class SlotsForm extends Component {
         this.props.getSlots(this.state.slots);
     }
 
+    handleToggle = () => {
+        const toggleForm = this.refs.toggle;
+        $(toggleForm).slideToggle();
+    } 
 
     render() {
         return (
-            <form>
-            <div onChange={this.handleSlotsChange.bind(this)}>
+            <div>
+                <button onClick={this.handleToggle}>Select number of slots:</button>
+            <form ref='toggle'>
+            <div className='initiallyHidden' onChange={this.handleSlotsChange.bind(this)}>
                 <li>
                     <input type="radio" value="5" name="amount" /> 5
                 </li>
@@ -32,6 +39,7 @@ class SlotsForm extends Component {
                 </li>
             </div>
             </form>
+            </div>
         )
     }
 }

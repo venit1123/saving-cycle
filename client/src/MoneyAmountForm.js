@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
+
 
 class MoneyAmountForm extends Component {
     constructor(props) {
@@ -10,29 +12,42 @@ class MoneyAmountForm extends Component {
     }
 
     handleAmountChange(event) {
-        this.setState({ amount: parseInt(event.target.value) }, this.handleSubmit.bind(this));
+        this.setState({ amount: parseInt(event.target.value) },
+        this.handleSubmit.bind(this));
     }
 
     handleSubmit = () => {
+        this.handleToggle();
         this.props.getAmount(this.state.amount);
     }
+
+    handleToggle = () => {
+        const toggleForm = this.refs.toggle;
+        $(toggleForm).slideToggle();
+    } 
+
 
 
     render() {
         return (
-            <form >
+            <div>
+            <button className='hide form-buttons rounded' onClick={this.handleToggle}>Select amount:</button>
+                <form ref='toggle' className='initiallyHidden'>
             <div onChange={this.handleAmountChange.bind(this)}>
-                <li>
+            <ul className="">
+                <li className="list-group-item list-group-item-action">
                     <input type="radio" value="50" name="amount" /> $50
                 </li>
-                <li>
+                <li className="list-group-item list-group-item-action">
                     <input type="radio" value="100" name="amount" /> $100
                 </li>
-                <li>
+                <li className="list-group-item list-group-item-action">
                     <input type="radio" value="200" name="amount" /> $200
                 </li>
+                </ul>
             </div>
             </form>
+            </div>
         )
     }
 }

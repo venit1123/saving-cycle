@@ -61,9 +61,11 @@ class TandaForm extends Component {
                     <br></br>
                     <SlotsForm getSlots={this.handleSlots} />
                     <br></br>
-                    <input type="submit" value="Submit" onClick={() => 
+                    <div className='form'>
+                        <input className='btn rounded-pill outline-button' type="submit" value="Submit" onClick={() => 
                         {this.handleSubmit();}
                     }/>
+                    </div>
                 </div>
             </div>
         );

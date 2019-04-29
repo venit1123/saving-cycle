@@ -1,29 +1,13 @@
-.remove-radio-button{
-    appearance: none;
-}
-
-.list-group-item.action
-{
-    background-color: aquamarine !important;
-}
-
 .list-group-mine .list-group-item {
   background-color: #F1C448;
-  border-left-color: #fff;
-  border-right-color: #fff;
 }
-
-.list-group-mine .list-group-item:hover {
-    background-color: #213C4D;
-    color: aliceblue;
+.form{
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
-
 .initiallyHidden{
     display: none;
-}
-
-.form{
-    width: inherit;
 }
 
 .blue-button{
@@ -34,3 +18,47 @@
 .blue-button:hover{
     color: #F1C448;
 }
+
+.no-radio{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.form-radio{
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     display: inline-block;
+     position: relative;
+     background-color: #f1f1f1;
+     color: #666;
+     top: 3px;
+     height: 30px;
+     width: 30px;
+     border: 0;
+     border-radius: 50px;
+     margin-right: 7px;
+     outline: none;
+}
+
+.form-radio:checked::before
+{
+     position: absolute;
+     font: 13px/1 'Open Sans', sans-serif;
+     left: 11px;
+     top: 7px;
+     content: '\02143';
+     transform: rotate(40deg);
+}
+
+.form-radio:hover
+{
+     background-color: #f7f7f7;
+}
+
+.form-radio:checked
+{
+     background-color: #f1f1f1;
+}
+
+

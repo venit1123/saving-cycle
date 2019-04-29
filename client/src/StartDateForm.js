@@ -31,8 +31,8 @@ class StartDayForm extends Component {
         return (
             <div className='card'>
                 <button className='btn main-font blue-button' onClick={this.handleToggle}>Starting day</button>
-                <div ref='toggle' className='initiallyHidden' >
-                <DayPickerInput onDayChange={this.handleDayChange.bind(this)} />
+                <div ref='toggle' className=' list-group-mine initiallyHidden' >
+                    <DayPickerInput className='list-group-mine' onDayChange={this.handleDayChange.bind(this)} />
             </div>
             </div>
  

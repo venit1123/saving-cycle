@@ -31,22 +31,23 @@ class MoneyAmountForm extends Component {
     render() {
         return (
             <div className='card'>
-            <button className='btn main-font blue-button' onClick={this.handleToggle}>Amount</button>
+                <button className='btn main-font blue-button' onClick={this.handleToggle}>Amount</button>
+
                 <form ref='toggle' className='initiallyHidden'>
-            <div onChange={this.handleAmountChange.bind(this)}>
-            <ul className="">
-                <li className="list-group-item list-group-item-action">
-                    <input type="radio" value="50" name="amount" /> $50
-                </li>
-                <li className="list-group-item list-group-item-action">
-                    <input type="radio" value="100" name="amount" /> $100
-                </li>
-                <li className="list-group-item list-group-item-action">
-                    <input type="radio" value="200" name="amount" /> $200
-                </li>
-                </ul>
-            </div>
-            </form>
+                    <div onChange={this.handleAmountChange.bind(this)}>
+                        <ul className="no-radio list-group-mine main-font">
+                            <li className="list-group-item list-group-item-action">
+                                <input id="radio-one" className="form-radio" type="radio" value="50" name="amount" /> $50
+                            </li>
+                            <li className="list-group-item list-group-item-action">
+                                <input id="radio-one" className="form-radio"n type="radio" value="100" name="amount" /> $100
+                            </li>
+                            <li className="list-group-item list-group-item-action">
+                                <input id="radio-one" className="form-radio" type="radio" value="200" name="amount" /> $200
+                            </li>
+                        </ul>
+                    </div>
+                </form>
             </div>
         )
     }

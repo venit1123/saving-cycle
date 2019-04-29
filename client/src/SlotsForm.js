@@ -28,18 +28,20 @@ class SlotsForm extends Component {
             <div className='card'>
                 <button className='btn main-font blue-button' onClick={this.handleToggle}>Slots</button>
                 <form ref='toggle' className='initiallyHidden'>
-            <div onChange={this.handleSlotsChange.bind(this)}>
-                <li>
-                    <input type="radio" value="5" name="amount" /> 5
-                </li>
-                <li>
-                    <input type="radio" value="10" name="amount" /> 10
-                </li>
-                <li>
-                    <input type="radio" value="12" name="amount" /> 12
-                </li>
-            </div>
-            </form>
+                    <div onChange={this.handleSlotsChange.bind(this)}>
+                        <ul className="no-radio list-group-mine main-font">
+                            <li className="list-group-item list-group-item-action">
+                                <input id="radio-one" className="form-radio" type="radio" value="5" name="amount" /> 5
+                            </li>
+                            <li className="list-group-item list-group-item-action">
+                                <input id="radio-one" className="form-radio" type="radio" value="10" name="amount" /> 10
+                            </li>
+                            <li className="list-group-item list-group-item-action">
+                                <input id="radio-one" className="form-radio" type="radio" value="12" name="amount" /> 12
+                            </li>
+                        </ul>
+                    </div>
+                </form>
             </div>
         )
     }

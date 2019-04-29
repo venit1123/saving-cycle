@@ -1,0 +1,14 @@
+.style-card{
+    padding-bottom: 10%;
+    padding-top: 10%;
+    margin-left: 3%;
+    margin-right: 3%;
+    background: #213C4D;
+}
+
+.light-button{
+    width: 50%;
+    margin-top: 25px;
+    color: #F9F4EE;
+    border: 2px solid #F9F4EE;
+}

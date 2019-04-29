@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SingleDay.css'
 
 class SingleDay extends Component {
     constructor() {
@@ -14,10 +15,12 @@ class SingleDay extends Component {
 
     render(){
         return(
-            <div>
-                <p>{this.props.date}</p>
-                <p>Available</p>
-                <button>Select</button>
+            <div className='col-sm-12 col-md-6'>
+            <div className='card style-card card-margin horizontal-center'>
+                <h3 className='title yellow-text'>{this.props.date}</h3>
+                <h6 className='yellow-text main-font'>Available</h6>
+                <button className='btn rounded-pill light-button' >Select</button>
+            </div>
             </div>
         )
     }

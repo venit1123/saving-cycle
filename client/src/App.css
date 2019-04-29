@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+.body{
+    background: #F9F4EE;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
@@ -19,6 +21,21 @@
   color: white;
 }
 
+.center{
+ vertical-align: middle;
+}
+
+.yellow-text{
+    color: #F1C448;
+}
+
+.seashell-text{
+  color: #F9F4EE;
+}
+
+.horizontal-center{
+  align-items: center;
+}
 .title{
    text-transform: uppercase;
    font-family: 'Homenaje',

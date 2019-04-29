@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom"
 import SingleDay from './SingleDay';
+import Title  from './Title'
 
 class Table extends Component {
     constructor() {
@@ -46,7 +47,11 @@ class Table extends Component {
             return <div>Loading...</div>;
         } else {
         return(
-            <div>
+            <div className='body min-padding'>
+            <div className='title'>
+                <Title name='Tanda slots'/>
+            </div>
+                <div className='row'>
                 {days.map(date => (
                      <SingleDay 
                      key={date.id}
@@ -55,6 +60,7 @@ class Table extends Component {
                      )
                    )
                  }        
+             </div>
              </div>
         );
     }

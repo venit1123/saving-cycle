@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import './App.css'
+import './Home.css'
 import Card from './Card.js'
 import saveImage from './images/saving.jpg'
 import givingImage from './images/giving.jpg'
 import moneyJar from './images/moneyJar.jpg'
 
+
 class Home extends Component {
     render(){
         return(
-            <div className="body container-fluid">
+            <div className="body container-fluid top-margin">
                     <div className="row">
-                        <div className='col-sm-12 col-md-4'>
+                        <div className='single-card col-sm-12 col-md-4'>
                             <Card 
                                 title="Create new tanda"
                                 description="Create a new tanda and invite friends and family to be part of the saving circle."

@@ -8,12 +8,10 @@
 }
 
 .min-padding{
-    padding: 10%;
-}
-
-.min-padding{
-     padding-left: 2%;
-     padding-right: 2%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 .helper {
     display: inline-block;
@@ -25,22 +23,11 @@
  vertical-align: middle;
 }
 
-.title{
-   text-transform: uppercase;
-   font-family: 'Homenaje',
-   sans-serif;
-   font-family: 'Federo',
-   sans-serif;
-   font-family: 'Julius Sans One',
-   sans-serif;
-}
-
 .medium-font {
     font-size: medium;
 }
 
 .main-font{
-    
     font-family: 'Julius Sans One',
     sans-serif;
     font-family: 'Homenaje',

@@ -19,8 +19,26 @@
   color: white;
 }
 
+.title{
+   text-transform: uppercase;
+   font-family: 'Homenaje',
+   sans-serif;
+   font-family: 'Federo',
+   sans-serif;
+   font-family: 'Julius Sans One',
+   sans-serif;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.main-font{
+    
+    font-family: 'Julius Sans One',
+    sans-serif;
+    font-family: 'Homenaje',
+    sans-serif;
 }
 
 @keyframes App-logo-spin {
@@ -30,12 +48,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.main-font {
-
-  font-family: 'Julius Sans One',
-    sans-serif;
-  font-family: 'Homenaje',
-    sans-serif;
 }

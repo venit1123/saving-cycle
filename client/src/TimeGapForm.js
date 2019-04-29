@@ -27,7 +27,7 @@ class TimeGapForm extends Component {
     render() {
         return (
             <div className='card'>
-                <button className='btn blue-button' onClick={this.handleToggle}>Time gap</button>
+                <button className='btn main-font blue-button' onClick={this.handleToggle}>Time gap</button>
         
                 <form ref='toggle' className='initiallyHidden'>
                 <div onChange={this.handleTimeGapChange.bind(this)}>

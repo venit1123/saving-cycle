@@ -26,7 +26,7 @@ class SlotsForm extends Component {
     render() {
         return (
             <div className='card'>
-                <button className='btn blue-button' onClick={this.handleToggle}>Number of slots:</button>
+                <button className='btn main-font blue-button' onClick={this.handleToggle}>Slots</button>
                 <form ref='toggle' className='initiallyHidden'>
             <div onChange={this.handleSlotsChange.bind(this)}>
                 <li>

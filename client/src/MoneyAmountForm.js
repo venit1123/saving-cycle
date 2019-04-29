@@ -31,7 +31,7 @@ class MoneyAmountForm extends Component {
     render() {
         return (
             <div className='card'>
-            <button className='btn blue-button' onClick={this.handleToggle}>Select amount</button>
+            <button className='btn main-font blue-button' onClick={this.handleToggle}>Amount</button>
                 <form ref='toggle' className='initiallyHidden'>
             <div onChange={this.handleAmountChange.bind(this)}>
             <ul className="">

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { withRouter } from "react-router-dom"
-import $ from 'jquery'
+import Welcome from './Welcome'
+
 
 class App extends Component {
   nextPath(path) {
@@ -11,10 +12,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome Page</h1>
-        <button onClick={() => this.nextPath('/home')} >
-          Login
-                </button>
+        <Welcome/>
       </div>
     )
   }

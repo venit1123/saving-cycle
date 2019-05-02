@@ -6,6 +6,7 @@ import './Welcome.css'
 
 class Welcome extends Component {
     render() {
+        console.log("FROM WELCOME :" , this.props.getUserInfo)
         return (
             <div className = 'container-fluid body no-side-padding min-padding'>
                 <div className = 'container'>
@@ -26,9 +27,6 @@ class Welcome extends Component {
                                     for generations and has been used as a structured way to access cash or save
                                         for a goal. By working in a group, we are forced into a commitment where others are counting on us, which gives us just the right amount of motivation to stick to the plan. The idea of <i> "I want to save"</i> becomes <i> “I have to save” </i> and before you know it you’ve reached your savings goal and are off enjoying that trip you’ve been wanting to take.
                                     </p>
-                                    <button type = 'button' className = 'btn rounded-pill outline-button' onClick = {() => this.props.history.push('/home')}>
-                                    Login 
-                                </button>
                             </div>
                         </div>
                     </div>
